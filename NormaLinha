@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+#define TAM 3
+
+int normaLinha(int matriz[TAM][TAM]);
+
+int main(){
+	
+	int matriz[TAM][TAM] = {{3,2,5},{1,1,2},{4,3,-2}};
+
+	for(int i = 0; i < TAM; i++){
+		for(int j = 0; j < TAM; j++){
+			printf("%d\t", matriz[i][j]);
+		}
+		printf("\n");
+	}
+
+	printf("Norma linha: %d", normaLinha(matriz));
+
+	return 0;
+}
+
+int normaLinha(int matriz[TAM][TAM]){
+	int vetor[TAM] = {0,0,0}, maior = 0;
+
+	for(int i = 0; i < TAM; i++){
+		for(int j = 0; j < TAM; j++){
+			vetor[i] += abs(matriz[i][j]);
+		}
+	}
+
+	for(int i  = 0; i < TAM; i ++){
+		if(maior < vetor[i])
+			maior = vetor[i];
+	}
+
+	return maior;
+}
